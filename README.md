@@ -1,4 +1,4 @@
-# woka-style — 한국어 문서 문체 플러그인
+# woka-writing-style — 한국어 문서 문체 플러그인
 
 Claude Code로 만드는 한국어 문서(보고서·제안서·이메일·노션 페이지·강의자료 등)의 문체를 일정한 격식 기준으로 유지해 주는 플러그인입니다. 설치하면 세션이 시작될 때마다 문체 규칙이 자동으로 적용되고, 문서 작업 시 AI 문체 제거와 맞춤법 검수 스킬이 함께 동작합니다.
 
@@ -15,8 +15,8 @@ Claude Code로 만드는 한국어 문서(보고서·제안서·이메일·노�
 Claude Code에서 아래 두 명령을 순서대로 입력합니다.
 
 ```
-/plugin marketplace add jinbaek-woka/woka-style
-/plugin install woka-style@woka-style
+/plugin marketplace add jinbaek-woka/woka-writing-style
+/plugin install woka-writing-style@woka-writing-style
 ```
 
 설치 후 새 세션을 시작하면 문체 규칙이 적용됩니다. `/plugin` 메뉴에서 설치 상태 확인이 가능합니다.
