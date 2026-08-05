@@ -1,0 +1,16 @@
+{
+  "name": "woka-style",
+  "description": "Woka 한국어 문서 문체 플러그인 배포용 마켓플레이스",
+  "owner": {
+    "name": "Woka",
+    "email": "jinbaek@woka.kr",
+    "url": "https://github.com/jinbaek-woka"
+  },
+  "plugins": [
+    {
+      "name": "woka-style",
+      "source": "./",
+      "description": "한국어 문서 문체 규칙(격식 기준) + AI 문체 제거(humanizer) + 맞춤법 검수(korean-spell-check)"
+    }
+  ]
+}

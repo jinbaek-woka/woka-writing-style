@@ -1,0 +1,15 @@
+{
+  "name": "woka-style",
+  "displayName": "Woka Style",
+  "description": "한국어 문서 문체 규칙(격식 기준) + AI 문체 제거(humanizer) + 맞춤법 검수(korean-spell-check)를 한 번에 적용하는 Woka 공통 플러그인",
+  "author": {
+    "name": "Woka",
+    "email": "jinbaek@woka.kr",
+    "url": "https://github.com/jinbaek-woka"
+  },
+  "homepage": "https://github.com/jinbaek-woka/woka-style",
+  "repository": "https://github.com/jinbaek-woka/woka-style",
+  "keywords": ["korean", "writing-style", "humanizer", "spell-check"],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
+}
