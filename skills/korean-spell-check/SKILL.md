@@ -90,7 +90,7 @@ python3 scripts/korean_spell_check.py \
 3. 각 변경점의 `원문`, `교정안`, `이유`
 4. 필요하면 `공개 웹 검사기 기준 결과이며, 최종 문맥 판단은 사람이 확인` 문구
 
-예시 JSON 필드:
+예시 JSON 필드 :
 
 ```json
 {
