@@ -28,7 +28,7 @@ Claude Code에서 아래 두 명령을 순서대로 입력합니다.
 
 ## 업데이트, 해제
 
-- 자동 업데이트 켜기(권장) : `/plugin` 입력 → Marketplaces 탭 → `woka-writing-style` 선택 → Enable auto-update. 켜 두면 이후 갱신은 Claude Code를 쓰는 중에 자동으로 받아지고 다음 세션부터 적용됩니다.
+- 자동 업데이트 켜기(권장) : `/plugin` 입력 → Marketplaces 탭 → `woka-writing-style` 선택 → Enable auto-update. 켜 두면 이후 갱신을 Claude Code 사용 중에 자동으로 내려받고, 다음 세션부터 적용됩니다.
 - 수동 업데이트 : `/plugin` 입력 → Installed 탭 → `woka-writing-style` 선택 → Update now. 적용은 `/reload-plugins` 또는 다음 세션.
 - 일시 해제 : `/plugin` 메뉴에서 비활성화(disable)
 - 삭제 : `/plugin` 메뉴에서 제거(uninstall). 삭제 시 흔적 없이 원래 상태로 복구
