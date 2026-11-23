@@ -1,0 +1,301 @@
+{
+  "skill": "style-check",
+  "assertions": [
+    {
+      "id": "has_frontmatter_name",
+      "type": "regex",
+      "description": "frontmatter에 name: style-check가 있어야 한다",
+      "pattern": "^name:\\s*style-check",
+      "expected": true
+    },
+    {
+      "id": "description_has_triggers",
+      "type": "regex",
+      "description": "description에 트리거 키워드가 5개 이상 있어야 한다",
+      "pattern": "(?s)^description:.*문체 점검.*문체 검수.*점검표 만들어.*판정표 누락 검사.*완료 보고 전 문체 확인",
+      "expected": true
+    },
+    {
+      "id": "description_has_boundary",
+      "type": "regex",
+      "description": "description에 제외 조건이 있어야 한다",
+      "pattern": "제외:.*korean-spell-check.*humanizer",
+      "expected": true
+    },
+    {
+      "id": "skill_md_length",
+      "type": "length",
+      "description": "SKILL.md가 500줄 이하여야 한다",
+      "check": "lines <= 500",
+      "expected": true
+    },
+    {
+      "id": "has_when_section",
+      "type": "regex",
+      "description": "언제 사용하는가 절이 있어야 한다",
+      "pattern": "^## 언제 사용하는가",
+      "expected": true
+    },
+    {
+      "id": "has_four_steps",
+      "type": "regex",
+      "description": "순서 4단계(낱말 후보, 점검표 판정, 재검수, 누락 검사)가 있어야 한다",
+      "pattern": "1\\. 낱말 후보 확인.*\\n2\\. 점검표 전체 판정.*\\n3\\. 재검수.*\\n4\\. 누락 검사",
+      "expected": true
+    },
+    {
+      "id": "verdict_values",
+      "type": "regex",
+      "description": "판정 칸 값(지킴, 놓침, 해당 없음)과 한 행에 번호 하나가 명시되어야 한다",
+      "pattern": "지킴, 놓침, 해당 없음.*\\n?.*한 행에 번호 하나|한 행에 번호 하나.*지킴, 놓침, 해당 없음",
+      "expected": true
+    },
+    {
+      "id": "complete_only_when_no_omission",
+      "type": "regex",
+      "description": "누락 없음일 때만 완료 보고한다는 규칙이 있어야 한다",
+      "pattern": "\"누락 없음\"이 나올 때만 완료 보고",
+      "expected": true
+    },
+    {
+      "id": "original_text_in_scope",
+      "type": "regex",
+      "description": "원래 있던 글자와 가져온 글자도 대상이며 원본과 같다는 위반 사유가 아님이 명시되어야 한다",
+      "pattern": "원래 있던 글자와 다른 자료에서 가져온 글자도 대상.*\\n?.*원본과 같다",
+      "expected": true
+    },
+    {
+      "id": "sentence_reading_rule",
+      "type": "regex",
+      "description": "팀장에게 말로 보고한다면 기준이 있어야 한다",
+      "pattern": "팀장에게 말로 보고한다면",
+      "expected": true
+    },
+    {
+      "id": "independent_reviewer",
+      "type": "regex",
+      "description": "독립 검토자에게 점검표와 원문 전체를 넘기고 최종 판정은 직접 한다는 규칙이 있어야 한다",
+      "pattern": "독립 검토자에게 점검표와 원문 전체를 넘겨.*최종 판정은 직접",
+      "expected": true
+    },
+    {
+      "id": "report_only_actual",
+      "type": "regex",
+      "description": "보고에는 실제로 한 점검만 적는다는 규칙이 있어야 한다",
+      "pattern": "보고에는 실제로 한 점검만 작성합니다",
+      "expected": true
+    },
+    {
+      "id": "figure_option",
+      "type": "regex",
+      "description": "그림 글자 검토 시 --figure 사용이 명시되어야 한다",
+      "pattern": "--figure",
+      "expected": true
+    },
+    {
+      "id": "not_in_plugin_folder",
+      "type": "regex",
+      "description": "점검표를 플러그인 폴더 안에 만들지 않는다는 규칙이 있어야 한다",
+      "pattern": "플러그인 폴더 안에 만들지 않습니다",
+      "expected": true
+    },
+    {
+      "id": "section_numbering_mentioned",
+      "type": "regex",
+      "description": "새 ## 절 번호(CM, SX) 자동 부여가 언급되어야 한다",
+      "pattern": "CM.*SX",
+      "expected": true
+    },
+    {
+      "id": "ref_link",
+      "type": "regex",
+      "description": "references/판정표_틀.md를 참조해야 한다",
+      "pattern": "references/판정표_틀\\.md",
+      "expected": true
+    },
+    {
+      "id": "no_em_dash_skill",
+      "type": "regex",
+      "description": "SKILL.md에 줄표가 없어야 한다",
+      "pattern": "[—―]",
+      "expected": false
+    },
+    {
+      "id": "no_middle_dot_skill",
+      "type": "regex",
+      "description": "SKILL.md에 가운뎃점이 없어야 한다",
+      "pattern": "[·ㆍ]",
+      "expected": false
+    },
+    {
+      "id": "exists_build_checklist",
+      "type": "file_exists",
+      "description": "scripts/build_checklist.py 파일이 존재해야 한다",
+      "path": "scripts/build_checklist.py",
+      "expected": true
+    },
+    {
+      "id": "exists_lint_style",
+      "type": "file_exists",
+      "description": "scripts/lint_style.py 파일이 존재해야 한다",
+      "path": "scripts/lint_style.py",
+      "expected": true
+    },
+    {
+      "id": "exists_check_coverage",
+      "type": "file_exists",
+      "description": "scripts/check_coverage.py 파일이 존재해야 한다",
+      "path": "scripts/check_coverage.py",
+      "expected": true
+    },
+    {
+      "id": "exists_판정표_틀",
+      "type": "file_exists",
+      "description": "references/판정표_틀.md 파일이 존재해야 한다",
+      "path": "references/판정표_틀.md",
+      "expected": true
+    },
+    {
+      "id": "no_personal_path_build_checklist",
+      "type": "regex",
+      "description": "build_checklist.py에 개인 경로(/Users/)가 기본값으로 들어 있지 않아야 한다",
+      "pattern": "/Users/",
+      "expected": false,
+      "file": "scripts/build_checklist.py"
+    },
+    {
+      "id": "no_personal_path_lint_style",
+      "type": "regex",
+      "description": "lint_style.py에 개인 경로(/Users/)가 기본값으로 들어 있지 않아야 한다",
+      "pattern": "/Users/",
+      "expected": false,
+      "file": "scripts/lint_style.py"
+    },
+    {
+      "id": "no_personal_path_check_coverage",
+      "type": "regex",
+      "description": "check_coverage.py에 개인 경로(/Users/)가 기본값으로 들어 있지 않아야 한다",
+      "pattern": "/Users/",
+      "expected": false,
+      "file": "scripts/check_coverage.py"
+    },
+    {
+      "id": "code_checks_time_dash_dot",
+      "type": "regex",
+      "description": "lint_style.py가 코드 줄 검사 묶음(시간 표현, 줄표, 가운뎃점)을 갖고 있어야 한다",
+      "pattern": "CODE_PATTERNS",
+      "expected": true,
+      "file": "scripts/lint_style.py"
+    },
+    {
+      "id": "callout_excluded_b9",
+      "type": "regex",
+      "description": "lint_style.py가 콜아웃 줄을 마침표 후보에서 빼야 한다",
+      "pattern": "kind == \"callout\"",
+      "expected": true,
+      "file": "scripts/lint_style.py"
+    },
+    {
+      "id": "access_exception_b5",
+      "type": "regex",
+      "description": "lint_style.py의 접근 검사가 권한 등 뒤따르는 낱말을 제외해야 한다",
+      "pattern": "접근\\(\\?!",
+      "expected": true,
+      "file": "scripts/lint_style.py"
+    },
+    {
+      "id": "unknown_sections_sx",
+      "type": "regex",
+      "description": "build_checklist.py가 알 수 없는 ## 절을 SX 번호로 뽑아야 한다",
+      "pattern": "SX-.*unknown_sections|unknown_sections",
+      "expected": true,
+      "file": "scripts/build_checklist.py"
+    },
+    {
+      "id": "cm_prefix",
+      "type": "regex",
+      "description": "build_checklist.py에 점검 방법 절(CM) 번호 머리가 있어야 한다",
+      "pattern": "\"CM-\".*\"## 점검 방법\"",
+      "expected": true,
+      "file": "scripts/build_checklist.py"
+    },
+    {
+      "id": "rules_root_error",
+      "type": "regex",
+      "description": "build_checklist.py가 뿌리를 못 찾으면 --rules-root 안내 오류를 내야 한다",
+      "pattern": "--rules-root로 지정하세요",
+      "expected": true,
+      "file": "scripts/build_checklist.py"
+    },
+    {
+      "id": "stdlib_only",
+      "type": "regex",
+      "description": "스크립트가 외부 라이브러리를 가져오지 않아야 한다",
+      "pattern": "^(?:import|from)\\s+(?!argparse|json|re|sys|unicodedata|collections|datetime|pathlib|build_checklist)\\w+",
+      "expected": false,
+      "file": "scripts/build_checklist.py"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc_full_checklist",
+      "description": "강의자료 완료 보고 전 문체 점검 요청에서 4단계를 모두 밟는다",
+      "prompt": "노션에 올릴 강의자료 본문 문체 점검해줘",
+      "expectations": [
+        "lint_style.py로 낱말 후보를 먼저 확인한다",
+        "점검표 번호 전체로 판정표를 작성한다(번호, 판정, 놓친 곳)",
+        "check_coverage.py가 누락 없음일 때만 완료 보고한다",
+        "보고에 누락 검사 실제 출력 숫자를 옮긴다"
+      ]
+    },
+    {
+      "id": "sc_figure",
+      "description": "그림 글자 검토에서 --figure를 붙여 LG 번호까지 판정한다",
+      "prompt": "이 다이어그램 안 글자 문체 검수해줘",
+      "expectations": [
+        "build_checklist.py와 check_coverage.py 모두 --figure로 실행한다",
+        "LG 번호도 판정표에 들어간다"
+      ]
+    },
+    {
+      "id": "sc_independent",
+      "description": "분량이 많은 산출물은 독립 검토자에게 점검표와 원문 전체를 넘기고 최종 판정은 직접 한다",
+      "prompt": "서른 장 덱 문체 전체 점검해줘",
+      "expectations": [
+        "독립 검토자에게 점검표와 원문 전체를 전달한다",
+        "검토자가 돌려준 판정표를 직접 확인하고 누락 검사를 돌린다",
+        "보고에는 실제로 한 점검만 적는다"
+      ]
+    }
+  ],
+  "ab_tests": [
+    {
+      "id": "ab_all_rules_vs_some",
+      "description": "규칙 전체 점검표 판정 대 기억으로 고른 일부 규칙 점검",
+      "prompt": "문체 규칙 지켰는지 확인해줘",
+      "good": "점검표 번호 전체를 판정표로 작성하고 check_coverage.py 누락 없음 출력 뒤 완료 보고한다",
+      "bad": "기억나는 규칙 몇 가지를 낱말 검색으로만 확인하고 문체 점검 완료라고 보고한다",
+      "criteria": [
+        "점검표 전체 번호 판정",
+        "누락 검사 실행",
+        "보고가 실제 점검 범위와 일치"
+      ]
+    }
+  ],
+  "regression": [
+    {
+      "id": "reg_same_as_original",
+      "description": "원본과 같다는 이유로 위반을 남기지 않는다",
+      "scenario": "다른 자료에서 가져온 문장에 번역체나 줄표가 있다",
+      "must_not_happen": "원본과 같다는 이유로 해당 없음이나 지킴으로 판정한다",
+      "check": "위반이면 놓침으로 판정해 고치고, 원본과 달라지는 곳을 보고에 적는다"
+    },
+    {
+      "id": "reg_no_cache_in_plugin",
+      "description": "점검표 생성물을 플러그인 폴더 안에 만들지 않는다",
+      "scenario": "--out 없이 플러그인 폴더에서 실행한다",
+      "must_not_happen": "플러그인 폴더에 점검표.md와 점검표.json이 생긴다",
+      "check": "스크립트가 거부 오류를 내고 --out 다른 폴더를 안내한다"
+    }
+  ]
+}
